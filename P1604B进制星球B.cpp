@@ -22,9 +22,23 @@ int main()
         else b_int[i] = b[i] - '0';
     }
 
-    for(int i = 0; i < a.size(); i++)
+    for(int i = a.size() - 1; i >= 0; i--)
     {
-        
+        a_int[i] = a_int[i] * pow(B, i);
+        if(a_int[i] >= 10)
+        {
+            a_int[i - 1] ++;
+            a_int[i] %= 10;
+        }
+    }
+    for(int i = b.size() - 1; i >= 0; i--)
+    {
+        b_int[i] = b_int[i] * pow(B, i);
+        if(b_int[i] >= 10)
+        {
+            b_int[i - 1] ++;
+            b_int[i] %= 10;
+        }
     }
     return 0;
 }
