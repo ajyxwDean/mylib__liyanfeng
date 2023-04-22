@@ -1,0 +1,5 @@
+void UpdateDeep(TNode rt,int deep = 1){
+	if(rt.lchild != nullptr) UpdateDeep(rt.lchild,deep+1);
+	if(rt.rchild != nullptr) UpdateDeep(rt.rchild,deep+1);
+	Tree_Deep = max(Tree_Deep, deep);
+}

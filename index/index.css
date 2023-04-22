@@ -1,0 +1,18 @@
+p
+{
+    color: aqua;
+    list-style: armenian;
+    font-family: 'JetBrains Mono', Courier, monospace;
+    font-size: 6pt;
+    background-color:beige;
+    background-image: none;
+    background-size: 20pt;
+
+}
+index
+{
+    color: blue;
+    font-style: italic;
+    font-size: large;
+    font-weight: 100;
+}
