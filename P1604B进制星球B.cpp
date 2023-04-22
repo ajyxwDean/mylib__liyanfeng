@@ -40,5 +40,6 @@ int main()
             b_int[i] %= 10;
         }
     }
+    
     return 0;
 }
