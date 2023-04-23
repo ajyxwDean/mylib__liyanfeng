@@ -2,8 +2,7 @@
 using namespace std;
 struct bigNum
 {
-    string a,b;
-    string ans;
+    int la,lb,lc;
     int aint[10005],bint[10005];
     int cint[10005];
     void read();
@@ -11,6 +10,7 @@ struct bigNum
     void clear();
     void add();
     void print();
+    string a,b,ans;
 };
 
 void bigNum::read()
@@ -22,6 +22,10 @@ void bigNum::read()
 void bigNum::clear()
 {
     memset(cint,0,sizeof(cint));
+    memset(aint,0,sizeof(aint));
+    memset(bint,0,sizeof(bint));
+    la = a.size();
+    lb = b.size();
 }
 
 void bigNum::change()
@@ -34,19 +38,27 @@ void bigNum::change()
     {
         bint[i] += b[i] - '0';
     }
+    lc = la > lb ? la : lb;
 }
 
 void bigNum::add()
 {
-    read();
-    change();
-    for(int i = max(a.size(), b.size()); i >= 1; i++)
+    for(int i = 0; i < lc; i++)
     {
-        cint[i] = aint[i] + bint[i];
+        cint[i] = aint[i] + bint[i] + cint[i];
         if(cint[i] >= 10)
         {
-            cint[i - 1] += 1;
+            cint[i + 1] ++;
             cint[i] %= 10;
         }
+    }
+    if(cint[lc] > 0) lc++;
+}
+
+void bigNum::print()
+{
+    for(int i = lc - 1; i >= 0; i++)
+    {
+        cout << cint[i];
     }
 }
